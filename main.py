@@ -13,8 +13,8 @@ gasLimit = 4000000
 
 ledger = 3
 
-usdc_from = 20
-usdc_to = 20
+usdc_from = 20 * 1000000
+usdc_to = 20 * 1000000
 
 RPC = {
     '10': 'https://mainnet.optimism.io',
@@ -119,12 +119,12 @@ if __name__ == "__main__":
         account = web3.eth.account.from_key(private_key)
         address_wallet = account.address
 
-        #approve_token()
+        approve_token()
 
-        amount = random.randint(usdc_from, usdc_to) * 1000000
+        amount = random.randint(usdc_from, usdc_to)
 
         acc_id = createAccountAndAddMargin(amount)
-        acc_ids.write(f'{acc_id} : {private_key}')
+        acc_ids.write(f'{acc_id} : {private_key}\n')
         print("account created", acc_id)
         swap_token(acc_id, amount * ledger)
 
