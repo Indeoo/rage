@@ -13,8 +13,8 @@ gasLimit = 4000000
 
 swap_percentage = 100
 
-usdc_from = -5
-usdc_to = -5
+usdc_from = -5 * 1000000
+usdc_to = -5 * 1000000
 
 def swap_token(acc_id, amount) -> None:
     try:
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         account = web3.eth.account.from_key(private_key)
         address_wallet = account.address
 
-        amount = random.randint(usdc_from, usdc_to) * 1000000
+        amount = random.randint(usdc_from, usdc_to)
 
         print("Swapping token for ", amount)
 
