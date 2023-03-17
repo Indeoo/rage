@@ -4,15 +4,15 @@ import random
 from functions import randomized_sleeping
 from functions import int_to_decimal
 
-fromSeconds = 5
-toSeconds = 10
+fromSeconds = 60
+toSeconds = 120
 
 gasLimit = 4000000
 
 swap_percentage = 100
 
-usdc_from = -10 * 1000000
-usdc_to = 10 * 1000000
+usdc_from = 15 * 1000000
+usdc_to = 15 * 1000000
 
 smallest_transaction = 5 * 1000000
 
@@ -27,7 +27,7 @@ def swap_token(acc_id, amount) -> None:
         nonce = web3.eth.get_transaction_count(address_wallet)
         gas_price = int_to_decimal(0.0000000001, 18)
         pool_id = 2721558366
-        sqrt_price_limit = 3010126858642902789427238
+        sqrt_price_limit = 3326091078221544063038015
         is_notional = True
         is_partial_allowed = False
         settle_profit = True
@@ -47,6 +47,7 @@ def swap_token(acc_id, amount) -> None:
         tx_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)
         web3.eth.wait_for_transaction_receipt(tx_hash)
     except Exception as error:
+        print(error)
         print(f'\n>>> mint error | {address_wallet}', 'red')
 
 
@@ -60,6 +61,7 @@ if __name__ == "__main__":
 
     with open("acc_ids.txt", "r") as f:
         acc_record_list = [row.strip() for row in f]
+        random.shuffle(acc_record_list)
 
     for acc_record in acc_record_list:
         randomize = random.randint(1, 100)

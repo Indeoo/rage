@@ -1,13 +1,11 @@
 from web3 import Web3
 from termcolor import cprint
-import time
-from tqdm import tqdm
 import random
 from functions import randomized_sleeping
 from functions import int_to_decimal
 
-fromSeconds = 5
-toSeconds = 10
+fromSeconds = 60
+toSeconds = 120
 
 gasLimit = 4000000
 
