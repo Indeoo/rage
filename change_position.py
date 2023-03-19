@@ -27,7 +27,7 @@ def swap_token(acc_id, amount) -> None:
         nonce = web3.eth.get_transaction_count(address_wallet)
         gas_price = int_to_decimal(0.0000000001, 18)
         pool_id = 2721558366
-        sqrt_price_limit = 3326091078221544063038015
+        sqrt_price_limit = 0
         is_notional = True
         is_partial_allowed = False
         settle_profit = True
